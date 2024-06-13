@@ -46,7 +46,6 @@ def predict(test_sentence, num_beams=5):
     return predictions
 
 #test_sentence = "John lives in New York where he works for Apple"
-#test_sentence = "So I gave the yellow sharpie to Dimitri Staufer and he said “ok“... and I work at Weizenbaum"
 test_sentence = "Lisa is the only female employee at TU"
 predictions = predict(test_sentence, num_beams=1)
 
