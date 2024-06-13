@@ -191,49 +191,6 @@ data = [
     }
 ]
 
-'''
-def print_text_length_statistics(data):
-    lengths = [len(case["text"]) for case in data]
-    min_length = min(lengths)
-    max_length = max(lengths)
-    avg_length = sum(lengths) / len(lengths)
-    percentiles = np.percentile(lengths, [50, 75, 90])
-
-    print(f"Minimum text length: {min_length}")
-    print(f"Maximum text length: {max_length}")
-    print(f"Average text length: {avg_length:.2f}")
-    print(f"50th percentile text length: {percentiles[0]}")
-    print(f"75th percentile (median) text length: {percentiles[1]}")
-    print(f"90th percentile text length: {percentiles[2]}")
-
-def print_token_length_statistics(data, tokenizer):
-    lengths = []
-    for case in data:
-        text = case["text"]
-        tokens = tokenizer.encode(text, truncation=False)
-        lengths.append(len(tokens))
-
-    min_length = min(lengths)
-    max_length = max(lengths)
-    avg_length = sum(lengths) / len(lengths)
-    percentiles = np.percentile(lengths, [50, 75, 90])
-
-    print(f"Minimum token length: {min_length}")
-    print(f"Maximum token length: {max_length}")
-    print(f"Average token length: {avg_length:.2f}")
-    print(f"50th percentile token length: {percentiles[0]}")
-    print(f"75th percentile (median) token length: {percentiles[1]}")
-    print(f"90th percentile token length: {percentiles[2]}")
-
-f = open("../echr_train.json")
-data = json.load(f)
-f.close()
-
-tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
-print_token_length_statistics(data=data, tokenizer=tokenizer)
-print_text_length_statistics(data=data)
-'''
-
 
 tokenizer = AutoTokenizer.from_pretrained("allenai/longformer-base-4096")
 
